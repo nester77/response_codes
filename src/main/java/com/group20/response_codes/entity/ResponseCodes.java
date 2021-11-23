@@ -53,6 +53,7 @@ public class ResponseCodes {
         return code;
     }
 
+
     public void setCode(int code) {
         this.code = code;
     }
