@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<header th:insert="blocks/header::header"></header>
+<main>
+
+
+    <div class="container mt-5 px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+        <h1>Коды ответов сервера</h1>
+
+
+        <table class="table table-sm table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Код ответа</th>
+                <th scope="col">Статус код</th>
+                <th scope="col">Название</th>
+                <th scope="col">Описание</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <div th:each="el: ${codes}" >
+                <tr>
+                    <td><h5 th:text="${el.code}" /></td>
+                    <td><h5 th:text="${el.statusCode}" /></td>
+                    <td><h5 th:text="${el.nameRu}"/></td>
+                    <td><h5 th:text="${el.descriptionRu}" /></td>
+
+                </tr>
+
+            </div>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">КОД ОТВЕТА СЕРВЕРА:</h1>
+        <h1 class="display-2" th:text="${codes[0].code}"></h1>
+
+        <h1 class="display-6">ВЫБЕРИТЕ ПРАВИЛЬНОЕ НАЗВАНИЕ</h1>
+    </div>
+
+    <div class="row text-center ">
+
+
+
+
+
+
+            <div class="col-lg-4 ">
+                <a href="/training1"><img  src="1XX.png" width="140" height="140"  >
+                    <h2 th:text="${codes[0].nameRu}"></h2></a>
+
+            </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4 ">
+            <a href="/training1"><img  src="1XX.png" width="140" height="140"  >
+                <h2 th:text="${codes[1].nameRu}"></h2></a>
+
+        </div><!-- /.col-lg-4 -->
+
+
+        <div class="col-lg-4 ">
+            <a href="/training1"><img  src="1XX.png" width="140" height="140"  >
+                <h2 th:text="${codes[2].nameRu}"></h2></a>
+
+        </div><!-- /.col-lg-4 -->
+
+
+
+
+    </div>
+
+
+</main>
+
+<div th:insert="blocks/footer::footer"></div>
+
+</body>
+</html>

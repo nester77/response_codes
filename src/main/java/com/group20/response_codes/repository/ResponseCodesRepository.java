@@ -8,9 +8,8 @@ import java.util.List;
 
 public interface ResponseCodesRepository extends JpaRepository <ResponseCodes, Long> {
 
-//    @Query("SELECT r FROM Response_codes r") // WHERE r.status_code=:status " )
-//    public List<ResponseCodes> randomResponseCodes (String status);
+    @Query("SELECT r FROM ResponseCodes r WHERE r.statusCode=:status" )
+    public List<ResponseCodes> randomResponseCodes (String status);
 
-      @Query("SELECT r FROM Response_codes r")
-      public List<ResponseCodes> getAllAirplane();
+
 }
