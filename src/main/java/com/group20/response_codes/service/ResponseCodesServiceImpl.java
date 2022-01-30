@@ -21,10 +21,10 @@ public class ResponseCodesServiceImpl implements ResponseCodesService {
 
 
     @Override
-    public HashSet<ResponseCodes> getRandomResponseCodes(String status) {
+    public List<ResponseCodes> getRandomResponseCodes(String status) {
         List<ResponseCodes> responseCodes;
 
-        if (status == null) {
+        if (status.equals("All")) {
             responseCodes = responseCodesRepository.findAll();
         } else {
             responseCodes = responseCodesRepository.randomResponseCodes(status);
@@ -32,18 +32,34 @@ public class ResponseCodesServiceImpl implements ResponseCodesService {
 
         HashSet<ResponseCodes> randomResponseCodes = new HashSet<>();
 
-
         while (randomResponseCodes.size() < 3) {
             int a = (int) (Math.random() * (responseCodes.size()));
             randomResponseCodes.add(responseCodes.get(a));
         }
-        return randomResponseCodes;
+        responseCodes.clear();
+
+        for (ResponseCodes item : randomResponseCodes) {
+            responseCodes.add(item);
+        }
+
+
+        return responseCodes;
     }
 
     @Override
     public List<ResponseCodes> findAll() {
         List<ResponseCodes> responseCodes = responseCodesRepository.findAll();
         return responseCodes;
+    }
+
+    @Override
+    public ResponseCodes getRandomResponseCode(List<ResponseCodes> responseCodes) {
+        return responseCodes.get(((int) (Math.random() * 3)));
+    }
+
+    @Override
+    public boolean isAnswerTrue(String answer, String trueAnswer) {
+        return answer.equals(trueAnswer);
     }
 
 

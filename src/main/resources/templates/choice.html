@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${title}"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -18,44 +18,95 @@
 
     <div class="row text-center ">
         <div class="col-lg-4 ">
-            <a href="/training1"><img  src="1XX.png" width="140" height="140"  >
-            <h2>Информационные</h2></a>
+            <form action="/training" methods="post">
+                <input type="hidden" th:value="Informational" name="status" class="form-control">
+                <img src="1XX.png" width="140" height="140">
+                <h2></h2>
+                <button type="submit" class="btn btn-info">Информационные</button>
+            </form>
+        </div><!-- /.col-lg-4 -->
 
+
+        <div class="col-lg-4 ">
+            <form action="/training" methods="post">
+                <input type="hidden" th:value="Success" name="status" class="form-control">
+                <img src="2XX.png" width="140" height="140">
+                <h2></h2>
+                <button type="submit" class="btn btn-info">Успешные</button>
+            </form>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <a href="/training2"><img  src="2XX.png" width="140" height="140" >
-                <h2>Успешные</h2></a>
+
+        <div class="col-lg-4 ">
+            <form action="/training" methods="post">
+                <input type="hidden" th:value="Redirection" name="status" class="form-control">
+                <img src="3XX.png" width="140" height="140">
+                <h2></h2>
+                <button type="submit" class="btn btn-info">Сообщения о перенаправлениях</button>
+            </form>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <a href="/training3"><img  src="3XX.png" width="140" height="140" >
-                <h2>Сообщения о перенаправлениях</h2></a>
-        </div>
+<!--        <div class="col-lg-4">-->
+<!--            <a href="/training3" th:value="Redirection" name="status"><img src="3XX.png" width="140" height="140">-->
+<!--                <h2>Сообщения о перенаправлениях</h2></a>-->
+<!--        </div>-->
 
     </div>
 
-    <h2> </h2>
+    <h2></h2>
 
     <div class="row text-center  py-5">
-        <div class="col-lg-4">
-            <a href="/training4"><img  src="4XX.png" width="140" height="140" >
-                <h2>Клиентские</h2></a>
+
+
+        <div class="col-lg-4 ">
+            <form action="/training" methods="post">
+                <input type="hidden" th:value="ClientError" name="status" class="form-control">
+                <img src="4XX.png" width="140" height="140">
+                <h2></h2>
+                <button type="submit" class="btn btn-info">Клиентские</button>
+            </form>
         </div>
-        <div class="col-lg-4">
-            <a href="/training5"><img  src="5XX.png" width="140" height="140" >
-                <h2>Серверные</h2></a>
+
+<!--        <div class="col-lg-4">-->
+
+
+<!--            <a href="/training4" th:value="ClientError" name="status"><img src="4XX.png" width="140" height="140">-->
+<!--                <h2>Клиентские</h2></a>-->
+<!--        </div>-->
+
+        <div class="col-lg-4 ">
+            <form action="/training" methods="post">
+                <input type="hidden" th:value="ServerError" name="status" class="form-control">
+                <img src="5XX.png" width="140" height="140">
+                <h2></h2>
+                <button type="submit" class="btn btn-info">Серверные</button>
+            </form>
         </div>
-        <div class="col-lg-4">
-            <a href="/trainingAll"><img  src="all.png" width="140" height="140" >
-                <h2>Все</h2></a>
+
+<!--        <div class="col-lg-4">-->
+<!--            &lt;!&ndash;            <a href="/training5" th:value="Server Error" name="status"><img  src="5XX.png" width="140" height="140" >&ndash;&gt;-->
+<!--            <h2>Серверные</h2></a>-->
+<!--        </div>-->
+
+        <div class="col-lg-4 ">
+            <form action="/training" methods="post">
+                <input type="hidden" th:value="All" name="status" class="form-control">
+                <img src="all.png" width="140" height="140">
+                <h2></h2>
+                <button type="submit" class="btn btn-info">Все</button>
+            </form>
         </div>
+
+
+<!--        <div class="col-lg-4">-->
+<!--            &lt;!&ndash;            <a href="/trainingAll" th:value=null name="status"><img  src="all.png" width="140" height="140" >&ndash;&gt;-->
+<!--            <h2>Все</h2></a>-->
+<!--        </div>-->
 
     </div>
-
 
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4"> </h1>
-        <p class="lead"> </p>
+        <h1 class="display-4"></h1>
+        <p class="lead"></p>
     </div>
 
 

@@ -7,6 +7,11 @@ import java.util.List;
 
 public interface ResponseCodesService {
 
-    public HashSet<ResponseCodes> getRandomResponseCodes (String status);
-    public List<ResponseCodes> findAll ();
+    List<ResponseCodes> getRandomResponseCodes(String status);
+
+    List<ResponseCodes> findAll();
+
+    ResponseCodes getRandomResponseCode (List<ResponseCodes> responseCodes);
+
+    boolean isAnswerTrue (String answer, String trueAnswer);
 }

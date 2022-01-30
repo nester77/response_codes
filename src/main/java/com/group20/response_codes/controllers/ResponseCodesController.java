@@ -1,6 +1,8 @@
 package com.group20.response_codes.controllers;
 
 //import com.group20.response_codes.entity.ResponseCodes;
+
+import com.group20.response_codes.dto.ResponseCodesDto;
 import com.group20.response_codes.entity.ResponseCodes;
 import com.group20.response_codes.repository.ResponseCodesRepository;
 import com.group20.response_codes.service.ResponseCodesService;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashSet;
@@ -18,13 +21,14 @@ import java.util.List;
 public class ResponseCodesController {
 
     private ResponseCodesService responseCodesService;
+    private List<ResponseCodes> mainResponseCodes;
+    private ResponseCodes mainTrueCode;
+    private String mainStatus;
 
     @Autowired
     public ResponseCodesController(ResponseCodesService responseCodesService) {
         this.responseCodesService = responseCodesService;
     }
-
-
 
 
 //    @RequestMapping("/theory")
@@ -46,50 +50,35 @@ public class ResponseCodesController {
         return "/choice";
     }
 
-    @RequestMapping("/training1")
-    public String getCodes1(ModelMap modelMap){
-        HashSet<ResponseCodes> codes = responseCodesService.getRandomResponseCodes("Informational");
+    @RequestMapping("/training")
+    public String getCodes1(@ModelAttribute("status") String status, ModelMap modelMap) {
+        if (status.isEmpty()) {
+            status = mainStatus;
+        } else {
+            mainStatus = status;
+        }
+        List<ResponseCodes> codes = responseCodesService.getRandomResponseCodes(status);
+        ResponseCodes trueCode = responseCodesService.getRandomResponseCode(codes);
         modelMap.addAttribute("codes", codes);
+        modelMap.addAttribute("trueCod", trueCode);
+        mainResponseCodes = codes;
+        mainTrueCode = trueCode;
+
         return "training";
     }
 
-    @RequestMapping("/training2")
-    public String getCodes2(ModelMap modelMap){
-        HashSet<ResponseCodes> codes = responseCodesService.getRandomResponseCodes("Success");
-        modelMap.addAttribute("codes", codes);
-        return "training";
+    @RequestMapping("/result")
+    public String getResult1(@ModelAttribute("answer") String answer, ModelMap modelMap) {
+        modelMap.addAttribute("codes", mainResponseCodes);
+        modelMap.addAttribute("trueCod", mainTrueCode);
+        boolean mark = responseCodesService.isAnswerTrue(answer, mainTrueCode.getNameRu());
+        modelMap.addAttribute("mark", mark);
+        return "result";
     }
 
-    @RequestMapping("/training3")
-    public String getCodes3(ModelMap modelMap){
-        HashSet<ResponseCodes> codes = responseCodesService.getRandomResponseCodes("Redirection");
-        modelMap.addAttribute("codes", codes);
-        return "training";
-    }
-
-    @RequestMapping("/training4")
-    public String getCodes4(ModelMap modelMap){
-        HashSet<ResponseCodes> codes = responseCodesService.getRandomResponseCodes("Client Error");
-        modelMap.addAttribute("codes", codes);
-        return "training";
-    }
-
-    @RequestMapping("/training5")
-    public String getCodes5(ModelMap modelMap){
-        HashSet<ResponseCodes> codes = responseCodesService.getRandomResponseCodes("Server Error");
-        modelMap.addAttribute("codes", codes);
-        return "training";
-    }
-
-    @RequestMapping("/trainingAll")
-    public String getCodesAll(ModelMap modelMap){
-        HashSet<ResponseCodes> codes = responseCodesService.getRandomResponseCodes(null);
-        modelMap.addAttribute("codes", codes);
-        return "training";
-    }
 
     @RequestMapping("/theory")
-    public String getTheory(ModelMap modelMap){
+    public String getTheory(ModelMap modelMap) {
         List<ResponseCodes> codes = responseCodesService.findAll();
         modelMap.addAttribute("codes", codes);
         return "theory";
