@@ -1,10 +1,6 @@
 package com.group20.response_codes.controllers;
 
-//import com.group20.response_codes.entity.ResponseCodes;
-
-import com.group20.response_codes.dto.ResponseCodesDto;
 import com.group20.response_codes.entity.ResponseCodes;
-import com.group20.response_codes.repository.ResponseCodesRepository;
 import com.group20.response_codes.service.ResponseCodesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.HashSet;
+
 import java.util.List;
 
 @Controller
@@ -30,13 +26,6 @@ public class ResponseCodesController {
         this.responseCodesService = responseCodesService;
     }
 
-
-//    @RequestMapping("/theory")
-//    public String getAllCodes(ModelMap modelMap){
-//        List<ResponseCodes> codes = responseCodesService.findAll();
-//        modelMap.addAttribute("codes", codes);
-//        return "theory";
-//    }
 
     @GetMapping("/")
     public String home(Model model) {
@@ -83,4 +72,11 @@ public class ResponseCodesController {
         modelMap.addAttribute("codes", codes);
         return "theory";
     }
+
+    @RequestMapping("/assistance")
+    public String assistance() {
+        return "assistance";
+    }
+
+
 }

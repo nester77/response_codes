@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${title}"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -26,12 +26,12 @@
             </tr>
             </thead>
             <tbody>
-            <div th:each="el: ${codes}" >
+            <div th:each="el: ${codes}">
                 <tr>
-                    <td><h5 th:text="${el.code}" /></td>
-                    <td><h5 th:text="${el.statusCode}" /></td>
+                    <td><h5 th:text="${el.code}"/></td>
+                    <td><h5 th:text="${el.statusCode}"/></td>
                     <td><h5 th:text="${el.nameEn}+' / '+${el.nameRu} "/></td>
-                    <td><h5 th:text="${el.descriptionRu}" /></td>
+                    <td><h5 th:text="${el.descriptionRu}"/></td>
 
                 </tr>
 
@@ -41,8 +41,6 @@
 
 
     </div>
-
-
 
 
 </main>

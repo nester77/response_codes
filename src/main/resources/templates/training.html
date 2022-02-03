@@ -11,37 +11,6 @@
 <main>
 
 
-<!--    <div class="container mt-5 px-3 py-3 pt-md-5 pb-md-4 mx-auto">-->
-<!--        <h1>Коды ответов сервера</h1>-->
-
-
-<!--        <table class="table table-sm table-bordered">-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th scope="col">Код ответа</th>-->
-<!--                <th scope="col">Статус код</th>-->
-<!--                <th scope="col">Название</th>-->
-<!--                <th scope="col">Описание</th>-->
-
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <div th:each="el: ${codes}">-->
-<!--                <tr>-->
-<!--                    <td><h5 th:text="${el.code}"/></td>-->
-<!--                    <td><h5 th:text="${el.statusCode}"/></td>-->
-<!--                    <td><h5 th:text="${el.nameRu}"/></td>-->
-<!--                    <td><h5 th:text="${el.descriptionRu}"/></td>-->
-
-<!--                </tr>-->
-
-<!--            </div>-->
-<!--            </tbody>-->
-<!--        </table>-->
-
-
-<!--    </div>-->
-
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4">КОД ОТВЕТА СЕРВЕРА:</h1>
         <h1 class="display-2" th:text="${trueCod.code}"></h1>
@@ -55,7 +24,7 @@
         <div class="col-lg-4 ">
             <form action="/result" methods="post">
                 <input type="hidden" th:value="${codes[0].nameRu}" name="answer" class="form-control">
-                <img src="1XX.png" width="140" height="140">
+                <img src="QQQ.png" width="140" height="140">
                 <h2 th:text="${codes[0].nameRu}"></h2>
                 <button type="submit" class="btn btn-info">Ответить >></button>
             </form>
@@ -65,7 +34,7 @@
         <div class="col-lg-4 ">
             <form action="/result" methods="post">
                 <input type="hidden" th:value="${codes[1].nameRu}" name="answer" class="form-control">
-                <img src="1XX.png" width="140" height="140">
+                <img src="QQQ.png" width="140" height="140">
                 <h2 th:text="${codes[1].nameRu}"></h2>
                 <button type="submit" class="btn btn-info">Ответить >></button>
             </form>
@@ -76,7 +45,7 @@
         <div class="col-lg-4 ">
             <form action="/result" methods="post">
                 <input type="hidden" th:value="${codes[2].nameRu}" name="answer" class="form-control">
-                <img src="1XX.png" width="140" height="140">
+                <img src="QQQ.png" width="140" height="140">
                 <h2 th:text="${codes[2].nameRu}"></h2>
                 <button type="submit" class="btn btn-info">Ответить >></button>
             </form>
@@ -88,7 +57,7 @@
 
     <div class="px-3 py-3 my-3 text-center">
 
-        <img  src="0.jpeg" width="200" height="200">
+        <img src="0.jpeg" width="200" height="200">
 
 
     </div>

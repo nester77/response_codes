@@ -2,7 +2,6 @@ package com.group20.response_codes.service;
 
 import com.group20.response_codes.entity.ResponseCodes;
 
-import java.util.HashSet;
 import java.util.List;
 
 public interface ResponseCodesService {
@@ -11,7 +10,7 @@ public interface ResponseCodesService {
 
     List<ResponseCodes> findAll();
 
-    ResponseCodes getRandomResponseCode (List<ResponseCodes> responseCodes);
+    ResponseCodes getRandomResponseCode(List<ResponseCodes> responseCodes);
 
-    boolean isAnswerTrue (String answer, String trueAnswer);
+    boolean isAnswerTrue(String answer, String trueAnswer);
 }
