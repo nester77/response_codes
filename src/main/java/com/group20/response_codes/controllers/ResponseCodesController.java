@@ -36,7 +36,7 @@ public class ResponseCodesController {
     @GetMapping("/choice")
     public String choice(Model model) {
         model.addAttribute("title", "Тренажер");
-        return "/choice";
+        return "choice";
     }
 
     @RequestMapping("/training")
